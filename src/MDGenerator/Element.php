@@ -26,6 +26,10 @@ namespace ABGEO\MDGenerator;
 class Element
 {
 
+    // Define List types constants.
+    const LIST_ORDERED = 1;
+    const LIST_UNORDERED = 2;
+
     /**
      * Concatenate given elements.
      *
@@ -143,6 +147,98 @@ class Element
             $return .= "> {$line}\n>\n";
         }
         $return = substr($return, 0, -3);
+
+        return $return;
+    }
+
+    /**
+     * Create Ordered or Unordered list.
+     *
+     * @param array $items List items.
+     * @param int   $type  List Type.
+     *                     Values:
+     *                     self::LIST_ORDERED   - Ordered List;
+     *                     self::LIST_UNORDERED - Unordered List;
+     *
+     * @return string
+     */
+    public static function createList(
+        array $items,
+        int $type = self::LIST_UNORDERED
+    ): string {
+        if (!in_array($type, [self::LIST_ORDERED, self::LIST_UNORDERED])) {
+            throw new \InvalidArgumentException(
+                'Invalid list type given in createList() method.'
+            );
+        }
+
+        $listChar = null;
+        if (self::LIST_ORDERED === $type) {
+            $listChar = '1.';
+        } else if (self::LIST_UNORDERED === $type) {
+            $listChar = '-';
+        }
+
+        $return = "{$listChar} " . implode($items, "\n{$listChar} ");
+        $return .= "\n";
+
+        return $return;
+    }
+
+    /**
+     * Create Line Element.
+     *
+     * @return string
+     */
+    public static function createLine(): string
+    {
+        $return = "***\n";
+
+        return $return;
+    }
+
+    /**
+     * Create Link Element.
+     *
+     * @param string $text  Link Text.
+     * @param string $url   Link URL
+     * @param string $title Link Title (On hover).
+     *
+     * @return string
+     */
+    public static function createLink(
+        string $text,
+        string $url,
+        string $title = null
+    ): string {
+        if (null != $title) {
+            $title = " \"{$title}\"";
+        }
+
+        $return = "[{$text}]({$url}{$title})\n";
+
+        return $return;
+    }
+
+    /**
+     * Create Image Element
+     *
+     * @param string      $src   Image source.
+     * @param string|null $alt   Image alternative text.
+     * @param string|null $title Image Title (On hover).
+     *
+     * @return string
+     */
+    public static function createImage(
+        string $src,
+        string $alt = null,
+        string $title = null
+    ): string {
+        if (null != $title) {
+            $title = " \"{$title}\"";
+        }
+
+        $return = "![{$alt}]({$src}{$title})\n";
 
         return $return;
     }

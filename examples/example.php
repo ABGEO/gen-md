@@ -38,6 +38,42 @@ $content = $document
             Element::createBlockquote('Nested'),
             'Blockquote'
         )
+    )
+    ->addElement(Element::createBreak())
+    ->addElement(Element::createList(['Unordered Item 1', 'Unordered  Item 2']))
+    ->addElement(Element::createBreak())
+    ->addElement(
+        Element::createList(
+            ['Ordered Item 1', 'Ordered Item 2'],
+            Element::LIST_ORDERED
+        )
+    )
+    ->addElement(Element::createLine())
+    ->addElement(Element::createLink('www.abgeo.dev', 'https://www.abgeo.dev'))
+    ->addElement(
+        Element::createLink(
+            'Link with title',
+            'https://informatics.ge',
+            'Informatics.Ge'
+        )
+    )
+    ->addElement(Element::createLine())
+    ->addElement(
+        Element::createImage(
+            'https://informatics.ge/images/blue-robot-hi.png',
+            'Informatics.Ge',
+            'www.informatics.ge'
+        )
+    )
+    // Create link with image.
+    ->addElement(
+        Element::createLink(
+            Element::createImage(
+                'https://abgeo.dev/img/favicon.png',
+                'ABGEOs Personal website'
+            ),
+            'https://abgeo.dev'
+        )
     );
 
 echo $content;
