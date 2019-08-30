@@ -8,7 +8,7 @@ use ABGEO\MDGenerator\Element;
 
 $document = new Document();
 
-$content = $document
+$document
     ->addElement(Element::createHeading('Heading level 1'))
     ->addElement(Element::createHeading('Heading level 5', 6))
     ->addElement(Element::createParagraph('Paragraph 1'))
@@ -76,4 +76,5 @@ $content = $document
         )
     );
 
-echo $content;
+// Export document to file.
+$document->export2File(__DIR__ . '/example.MD');

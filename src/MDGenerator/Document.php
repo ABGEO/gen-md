@@ -25,6 +25,8 @@ namespace ABGEO\MDGenerator;
  */
 class Document
 {
+    use ExporterTrait;
+
     /**
      * Markdown document content.
      *
