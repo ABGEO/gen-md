@@ -41,6 +41,11 @@ trait ExporterTrait
         $content = $this->_documentContent;
 
         try {
+            $directory = dirname($path);
+            if (!file_exists($directory)) {
+                mkdir($directory, 0755, true);
+            }
+
             file_put_contents($path, $content);
         }
         catch (Exception $e) {

@@ -77,4 +77,4 @@ $document
     );
 
 // Export document to file.
-$document->export2File(__DIR__ . '/example.MD');
+$document->export2File(__DIR__ . '/generated/example.MD');
