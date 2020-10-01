@@ -1,12 +1,11 @@
 # gen-md
 PHP Library for generating Markdown document
 
-
 [![GitHub license](https://img.shields.io/github/license/ABGEO07/gen-md.svg)](https://github.com/ABGEO07/gen-md/blob/master/LICENSE)
-
 [![GitHub release](https://img.shields.io/github/release/ABGEO07/gen-md.svg)](https://github.com/ABGEO07/gen-md/releases)
-
 [![Packagist Version](https://img.shields.io/packagist/v/abgeo/gen-md.svg "Packagist Version")](https://packagist.org/packages/abgeo/gen-md "Packagist Version")
+
+[![PHP Innovation Award August 2020 Winner](https://www.phpclasses.org/award/innovation/winner.png)](https://www.phpclasses.org/package/11759-PHP-Compose-and-generate-Markdown-documents.html)
 
 ---
 
